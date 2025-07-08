@@ -80,16 +80,22 @@
     function changeLanguage(lang) {
       const de = document.getElementById('lang-de');
       const ar = document.getElementById('lang-ar');
+      const impressumDE = document.getElementById('legal-links-de');
+      const impressumAR = document.getElementById('legal-links-ar');
       if (lang === 'ar') {
         document.documentElement.lang = 'ar';
         document.documentElement.dir = 'rtl';
         de.style.display = 'none';
         ar.style.display = 'block';
+        impressumDE.style.display = 'none';
+        impressumAR.style.display = 'block';
       } else {
         document.documentElement.lang = 'de';
         document.documentElement.dir = 'ltr';
         ar.style.display = 'none';
         de.style.display = 'block';
+        impressumDE.style.display = 'block';
+        impressumAR.style.display = 'none';
       }
     }
     window.onload = () => {
@@ -100,12 +106,13 @@
 <body>
   <div class="switch-lang">
     <label for="languageSelect">Sprache wählen:</label>
-    <select id="languageSelect" onchange="changeLanguage(this.value)" style="margin-left:0.5rem;">
+    <select id="languageSelect" onchange="changeLanguage(this.value)">
       <option value="de">Deutsch</option>
       <option value="ar">العربية</option>
     </select>
   </div>
 
+  <!-- Deutsche Version -->
   <div id="lang-de">
     <div class="header">
       <img src="logo.png.jpeg" alt="SaltEasy Logo" />
@@ -144,9 +151,10 @@
     </div>
   </div>
 
+  <!-- Arabische Version -->
   <div id="lang-ar" style="display:none; direction: rtl; text-align: right;">
     <div class="header">
-      <img src="SaltEasyArabisch.jpeg" alt="صورة المنتج" />
+      <img src="logo.png.jpeg" alt="SaltEasy Logo" />
       <h1>سولت إيزي</h1>
       <p>حجر ملحي طبيعي مع نبات القراص لصحة الخيول في جميع الظروف</p>
     </div>
@@ -182,12 +190,20 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <div class="footer">
     &copy; 2025 SaltEasy – ein Markenprodukt der Brodbeck Pferde & Service GmbH | Kontakt: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a> | Instagram: @salteasy_nettlebar
   </div>
-  <div class="legal-links" style="text-align:center; padding:1rem;">
+
+  <!-- Impressum-Links -->
+  <div class="legal-links" style="text-align:center; padding:1rem;" id="legal-links-de">
     <a href="#impressum" onclick="document.getElementById('impressum').style.display='block'">Impressum</a>
   </div>
+  <div class="legal-links" style="text-align:center; padding:1rem; display:none;" id="legal-links-ar">
+    <a href="#impressum-ar" onclick="document.getElementById('impressum-ar').style.display='block'">النشرة القانونية</a>
+  </div>
+
+  <!-- Impressum DE -->
   <div id="impressum" style="display:none; background:#fff; padding:2rem; margin:2rem auto; max-width:800px; border-radius:8px;">
     <h2>Impressum</h2>
     <p><strong>Angaben gemäß § 5 TMG:</strong><br />
@@ -201,6 +217,22 @@
     <p><strong>Umsatzsteuer-ID:</strong><br />(folgt)</p>
     <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />Stefan Brodbeck</p>
   </div>
+
+  <!-- Impressum AR -->
+  <div id="impressum-ar" style="display:none; background:#fff; padding:2rem; margin:2rem auto; max-width:800px; border-radius:8px; direction: rtl; text-align: right;">
+    <h2>النشرة القانونية</h2>
+    <p><strong>المعلومات وفقًا للمادة 5 من قانون وسائل الإعلام الألماني (TMG):</strong><br />
+    شركة Brodbeck Pferde & Service GmbH<br />
+    شارع بودنبورغر رقم 39<br />
+    31162 باد زالتسدتفورث – ألمانيا</p>
+    <p><strong>المدراء المفوضون:</strong><br />
+    شتيفان برودبك، فيليب ريتمولر</p>
+    <p><strong>الاتصال:</strong><br />
+    البريد الإلكتروني: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a></p>
+    <p><strong>رقم السجل التجاري:</strong><br />(سيتم توفيره لاحقًا)</p>
+    <p><strong>رقم التعريف الضريبي:</strong><br />(سيتم توفيره لاحقًا)</p>
+    <p><strong>المسؤول عن المحتوى وفقًا للمادة 55، الفقرة 2 من اتفاقية البث الإعلامي:</strong><br />
+    شتيفان برودبك</p>
+  </div>
 </body>
 </html>
-
