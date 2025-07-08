@@ -17,8 +17,11 @@
       padding: 0.5rem 1rem;
       background: #e0e0e0;
     }
+    .switch-lang label {
+      color: #3f5e3f;
+    }
     .header {
-      background: #1c4326;
+      background: #3f5e3f;
       color: #f6e8c9;
       text-align: center;
       padding: 2rem;
@@ -73,98 +76,130 @@
       color: #666;
     }
   </style>
+  <script>
+    function changeLanguage(lang) {
+      const de = document.getElementById('lang-de');
+      const ar = document.getElementById('lang-ar');
+      if (lang === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        de.style.display = 'none';
+        ar.style.display = 'block';
+      } else {
+        document.documentElement.lang = 'de';
+        document.documentElement.dir = 'ltr';
+        ar.style.display = 'none';
+        de.style.display = 'block';
+      }
+    }
+    window.onload = () => {
+      changeLanguage('de');
+    }
+  </script>
 </head>
 <body>
   <div class="switch-lang">
-    <label for="languageSelect" style="font-size:0.9rem; color:#1c4326;">Sprache wählen:</label>
+    <label for="languageSelect">Sprache wählen:</label>
     <select id="languageSelect" onchange="changeLanguage(this.value)" style="margin-left:0.5rem;">
       <option value="de">Deutsch</option>
       <option value="ar">العربية</option>
     </select>
   </div>
-  <script>
-    function changeLanguage(lang) {
-      if(lang === 'ar') {
-        document.documentElement.lang = 'ar';
-        document.documentElement.dir = 'rtl';
-      } else {
-        document.documentElement.lang = 'de';
-        document.documentElement.dir = 'ltr';
-      }
-      location.reload();
-    }
-  </script>
 
-  <div class="header">
-    <img src="logo.png.jpeg" alt="SaltEasy Logo" />
-    <h1>SaltEasy</h1>
-    <p>Der Salzleckstein mit Brennnessel – für gesunde Pferde unter allen Bedingungen</p>
-  </div>
-
-  <div class="hero">
-    <img src="WhatsApp Image 2025-07-06 at 12.37.40.jpeg" alt="SaltEasy Produkt" />
-    <h2>Antioxidativ & entzündungshemmend</h2>
-  </div>
-
-  <div class="content">
-    <h2>Die Vorteile von SaltEasy auf einen Blick:</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>✨ Immun-Booster & Parasitenschutz</h3>
-        <p>Stärkt das Immunsystem, reduziert oxidativen Stress und hemmt Entzündungen.</p>
+  <div id="lang-de">
+    <div class="header">
+      <img src="logo.png.jpeg" alt="SaltEasy Logo" />
+      <h1>SaltEasy</h1>
+      <p>Der Salzleckstein mit Brennnessel – für gesunde Pferde unter allen Bedingungen</p>
+    </div>
+    <div class="hero">
+      <img src="WhatsApp Image 2025-07-06 at 12.37.40.jpeg" alt="SaltEasy Produkt" />
+      <h2>Antioxidativ & entzündungshemmend</h2>
+    </div>
+    <div class="content">
+      <h2>Die Vorteile von SaltEasy auf einen Blick:</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>✨ Immun-Booster & Parasitenschutz</h3>
+          <p>Stärkt das Immunsystem, reduziert oxidativen Stress und hemmt Entzündungen.</p>
+        </div>
+        <div class="feature">
+          <h3>💪 Stärkung von Muskeln & Knochen</h3>
+          <p>Kalzium, Magnesium & Eisen fördern Aufbau und Regeneration.</p>
+        </div>
+        <div class="feature">
+          <h3>💧 Ausgleich des Elektrolythaushalts</h3>
+          <p>Hilft bei Hydration & Energieversorgung – besonders bei Hitze.</p>
+        </div>
+        <div class="feature">
+          <h3>🌱 Nachhaltig & wirtschaftlich</h3>
+          <p>Ohne synthetische Zusätze – spart Kosten, stärkt Gesundheit.</p>
+        </div>
       </div>
-      <div class="feature">
-        <h3>💪 Stärkung von Muskeln & Knochen</h3>
-        <p>Kalzium, Magnesium & Eisen fördern Aufbau und Regeneration.</p>
-      </div>
-      <div class="feature">
-        <h3>💧 Ausgleich des Elektrolythaushalts</h3>
-        <p>Hilft bei Hydration & Energieversorgung – besonders bei Hitze.</p>
-      </div>
-      <div class="feature">
-        <h3>🌱 Nachhaltig & wirtschaftlich</h3>
-        <p>Ohne synthetische Zusätze – spart Kosten, stärkt Gesundheit.</p>
+      <div class="cta">
+        <h2>Jetzt kostenloses Testpaket sichern</h2>
+        <p>Teste SaltEasy unverbindlich in deinem Stall. Lieferung aktuell in den VAE, bald auch EU-weit.</p>
+        <button onclick="window.location.href='mailto:salteasy@yahoo.com?subject=Testpaket%20SaltEasy'">Testpaket anfordern</button>
       </div>
     </div>
+  </div>
 
-    <div class="cta">
-      <h2>Jetzt kostenloses Testpaket sichern</h2>
-      <p>Teste SaltEasy unverbindlich in deinem Stall. Lieferung aktuell in den VAE, bald auch EU-weit.</p>
-      <button onclick="window.location.href='mailto:salteasy@yahoo.com?subject=Testpaket%20SaltEasy'">Testpaket anfordern</button>
+  <div id="lang-ar" style="display:none; direction: rtl; text-align: right;">
+    <div class="header">
+      <img src="SaltEasyArabisch.jpeg" alt="صورة المنتج" />
+      <h1>سولت إيزي</h1>
+      <p>حجر ملحي طبيعي مع نبات القراص لصحة الخيول في جميع الظروف</p>
+    </div>
+    <div class="hero">
+      <img src="SaltEasyArabisch.jpeg" alt="منتج سولت إيزي" />
+      <h2>مضاد للأكسدة ومضاد للالتهابات</h2>
+    </div>
+    <div class="content">
+      <h2>مزايا سولت إيزي:</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>✨ يقوي المناعة ويحمي من الطفيليات</h3>
+          <p>يعزز جهاز المناعة ويقلل من الإجهاد التأكسدي ويقاوم الالتهابات.</p>
+        </div>
+        <div class="feature">
+          <h3>💪 يقوي العضلات والعظام</h3>
+          <p>الكالسيوم والمغنيسيوم والحديد يساعدون على البناء والتجدد.</p>
+        </div>
+        <div class="feature">
+          <h3>💧 توازن في الإلكتروليتات</h3>
+          <p>يدعم الترطيب وتوفير الطاقة، خاصة في الطقس الحار.</p>
+        </div>
+        <div class="feature">
+          <h3>🌱 مستدام واقتصادي</h3>
+          <p>بدون إضافات صناعية – يوفر التكاليف ويحافظ على الصحة.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <h2>احصل على عينة تجريبية مجانية الآن</h2>
+        <p>جرّب سولت إيزي مجانًا في اسطبل الخيول لديك. التوصيل متاح حاليًا في الإمارات العربية المتحدة، وقريبًا في أوروبا.</p>
+        <button onclick="window.location.href='mailto:salteasy@yahoo.com?subject=طلب%20عينة%20SaltEasy'">اطلب العينة</button>
+      </div>
     </div>
   </div>
 
   <div class="footer">
-    &copy; 2025 SaltEasy – ein Markenprodukt der Brodbeck Pferde & Service GmbH |
-    Kontakt: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a> |
-    Instagram: @salteasy_nettlebar
+    &copy; 2025 SaltEasy – ein Markenprodukt der Brodbeck Pferde & Service GmbH | Kontakt: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a> | Instagram: @salteasy_nettlebar
   </div>
-
   <div class="legal-links" style="text-align:center; padding:1rem;">
     <a href="#impressum" onclick="document.getElementById('impressum').style.display='block'">Impressum</a>
   </div>
-
   <div id="impressum" style="display:none; background:#fff; padding:2rem; margin:2rem auto; max-width:800px; border-radius:8px;">
     <h2>Impressum</h2>
     <p><strong>Angaben gemäß § 5 TMG:</strong><br />
     Brodbeck Pferde & Service GmbH<br />
     Bodenburger Str. 39<br />
     31162 Bad Salzdetfurth<br /></p>
-
-    <p><strong>Vertreten durch:</strong><br />
-    Stefan Brodbeck und Philip Riethmüller</p>
-
+    <p><strong>Vertreten durch:</strong><br />Stefan Brodbeck und Philip Riethmüller</p>
     <p><strong>Kontakt:</strong><br />
     E-Mail: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a></p>
-
-    <p><strong>Registereintrag:</strong><br />
-    (folgt)</p>
-
-    <p><strong>Umsatzsteuer-ID:</strong><br />
-    (folgt)</p>
-
-    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
-    Stefan Brodbeck</p>
+    <p><strong>Registereintrag:</strong><br />(folgt)</p>
+    <p><strong>Umsatzsteuer-ID:</strong><br />(folgt)</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />Stefan Brodbeck</p>
   </div>
 </body>
 </html>
