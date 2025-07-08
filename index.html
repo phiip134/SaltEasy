@@ -17,11 +17,6 @@
       padding: 0.5rem 1rem;
       background: #e0e0e0;
     }
-    .switch-lang a {
-      color: #1c4326;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
     .header {
       background: #1c4326;
       color: #f6e8c9;
@@ -81,8 +76,24 @@
 </head>
 <body>
   <div class="switch-lang">
-    <a href="#" onclick="document.documentElement.lang='ar'; document.documentElement.dir='rtl'; location.reload();">العربية</a>
+    <label for="languageSelect" style="font-size:0.9rem; color:#1c4326;">Sprache wählen:</label>
+    <select id="languageSelect" onchange="changeLanguage(this.value)" style="margin-left:0.5rem;">
+      <option value="de">Deutsch</option>
+      <option value="ar">العربية</option>
+    </select>
   </div>
+  <script>
+    function changeLanguage(lang) {
+      if(lang === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+      } else {
+        document.documentElement.lang = 'de';
+        document.documentElement.dir = 'ltr';
+      }
+      location.reload();
+    }
+  </script>
 
   <div class="header">
     <img src="logo.png.jpeg" alt="SaltEasy Logo" />
@@ -124,7 +135,9 @@
   </div>
 
   <div class="footer">
-    &copy; 2025 SaltEasy – ein Markenprodukt der Brodbeck Pferde & Service GmbH | Kontakt: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a> | Instagram: @salteasy_nettlebar
+    &copy; 2025 SaltEasy – ein Markenprodukt der Brodbeck Pferde & Service GmbH |
+    Kontakt: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a> |
+    Instagram: @salteasy_nettlebar
   </div>
 
   <div class="legal-links" style="text-align:center; padding:1rem;">
@@ -155,3 +168,4 @@
   </div>
 </body>
 </html>
+
