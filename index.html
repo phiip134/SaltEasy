@@ -17,11 +17,9 @@
       padding: 0.5rem 1rem;
       background: #e0e0e0;
     }
-    .switch-lang label {
-      color: #3f5e3f;
+    .switch-lang label { color: #486b2f;
     }
-    .header {
-      background: #013F12;
+    .header { background: #013F12;
       color: #f6e8c9;
       text-align: center;
       padding: 2rem;
@@ -99,11 +97,25 @@
       }
     }
     window.onload = () => {
-      changeLanguage('de');
+      document.getElementById('languageModal').style.display = 'flex';
+    }
+  
+    function selectInitialLanguage(lang) {
+      changeLanguage(lang);
+      document.getElementById('languageModal').style.display = 'none';
     }
   </script>
 </head>
 <body>
+  <!-- Modal Language Popup -->
+  <div id="languageModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:2rem;border-radius:12px;text-align:center;max-width:400px;">
+      <h2>Sprache wählen / اختر اللغة</h2>
+      <button onclick="selectInitialLanguage('de')" style="margin:1rem;padding:1rem 2rem;background:#013F12;color:#fff;border:none;border-radius:6px;font-size:1rem;cursor:pointer;">Deutsch</button>
+      <button onclick="selectInitialLanguage('ar')" style="margin:1rem;padding:1rem 2rem;background:#013F12;color:#fff;border:none;border-radius:6px;font-size:1rem;cursor:pointer;">العربية</button>
+    </div>
+  </div>
+
   <div class="switch-lang">
     <label for="languageSelect">Sprache wählen:</label>
     <select id="languageSelect" onchange="changeLanguage(this.value)">
@@ -145,6 +157,7 @@
       </div>
       <div class="cta">
         <h2>Jetzt kostenloses Testpaket sichern</h2>
+        <p>Teste SaltEasy unverbindlich in deinem Stall. Lieferung aktuell in den VAE, bald auch EU-weit.</p>
         <button onclick="window.location.href='mailto:salteasy@yahoo.com?subject=Testpaket%20SaltEasy'">Testpaket anfordern</button>
       </div>
     </div>
@@ -183,6 +196,7 @@
       </div>
       <div class="cta">
         <h2>احصل على عينة تجريبية مجانية الآن</h2>
+        <p>جرّب سولت إيزي مجانًا في اسطبل الخيول لديك. التوصيل متاح حاليًا في الإمارات العربية المتحدة، وقريبًا في أوروبا.</p>
         <button onclick="window.location.href='mailto:salteasy@yahoo.com?subject=طلب%20عينة%20SaltEasy'">اطلب العينة</button>
       </div>
     </div>
@@ -213,7 +227,7 @@
     E-Mail: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a></p>
     <p><strong>Registereintrag:</strong><br />BPS UG DE361422003</p>
     <p><strong>Umsatzsteuer-ID:</strong><br />53610974213</p>
-    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />Melanie Günther</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />Melanie GüntherStefan Brodbeck</p>
   </div>
 
   <!-- Impressum AR -->
@@ -221,16 +235,17 @@
     <h2>النشرة القانونية</h2>
     <p><strong>المعلومات وفقًا للمادة 5 من قانون وسائل الإعلام الألماني (TMG):</strong><br />
     شركة Brodbeck Pferde & Service GmbH<br />
-    شارع بودنبورغر رقم تسعة وثلاثون<br />
-    ٣١١٦٢ باد زالتسدتفورث – ألمانيا</p>
-    <p><strong>المدراء المفوضون:</strong><br />
-    Melanie Günther</p>
+    شارع بودنبورغر رقم 39<br />
+    31162 باد زالتسدتفورث – ألمانيا</p>
+    <p><strong>المدراء المفوضون:</strong><br />ميلاني غونتر
+    شتيفان برودبك، فيليب ريتمولر</p>
     <p><strong>الاتصال:</strong><br />
     البريد الإلكتروني: <a href="mailto:salteasy@yahoo.com">salteasy@yahoo.com</a></p>
     <p><strong>رقم السجل التجاري:</strong><br />BPS UG DE361422003</p>
     <p><strong>رقم التعريف الضريبي:</strong><br />53610974213</p>
-    <p><strong>المسؤول عن المحتوى وفقًا للمادة 55، الفقرة 2 من اتفاقية البث الإعلامي:</strong><br />
-    Melanie Günther</p>
+    <p><strong>المسؤول عن المحتوى وفقًا للمادة 55، الفقرة 2 من اتفاقية البث الإعلامي:</strong><br />ميلاني غونتر
+    شتيفان برودبك</p>
   </div>
 </body>
 </html>
+
